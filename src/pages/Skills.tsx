@@ -1,102 +1,89 @@
 import { motion } from 'framer-motion';
 
-const skillsData = [
+const skillCategories = [
   {
-    category: 'AI & Machine Learning',
-    skills: ['TensorFlow', 'Keras', 'Scikit-learn', 'CNN', 'LSTM', 'YOLO', 'Transfer Learning', 'NLP', 'OCR', 'Deep Learning', 'Hyperparameter Tuning', 'Cross-Validation'],
+    title: '• AI & Machine Learning',
+    skills: [
+      'TensorFlow', 'Keras', 'Scikit-learn', 'CNN', 'LSTM', 'YOLO',
+      'Transfer Learning', 'Model Deployment', 'Hyperparameter Tuning',
+      'Cross-Validation', 'Computer Vision', 'NLP', 'OCR', 'Deep Learning'
+    ],
   },
   {
-    category: 'Programming',
-    skills: ['Python', 'C++', 'Java', 'JavaScript', 'SQL', 'Automation Scripting'],
+    title: '• Programming Languages',
+    skills: ['Python', 'SQL', 'C++', 'Java', 'JavaScript'],
   },
   {
-    category: 'Computer Vision',
-    skills: ['OpenCV', 'Tesseract OCR', 'face_recognition', 'YOLO', 'Image Preprocessing'],
+    title: '• Backend & APIs',
+    skills: ['FastAPI', 'Flask', 'REST APIs', 'Docker', 'MySQL', 'Supabase', 'Firebase', 'PHP'],
   },
   {
-    category: 'Backend & APIs',
-    skills: ['FastAPI', 'Flask', 'REST APIs', 'PHP', 'Docker'],
+    title: '• Libraries & Signal Processing',
+    skills: [
+      'OpenCV', 'NumPy', 'Pandas', 'Matplotlib', 'Seaborn',
+      'PyMuPDF', 'Tesseract OCR', 'python-docx', 'face_recognition'
+    ],
   },
   {
-    category: 'Automation & AI Agents',
-    skills: ['Make.com', 'n8n', 'Prompt Engineering', 'LLM Integration (OpenAI / Anthropic)', 'API Webhooks', 'AI Agents', 'Workflow Automation'],
+    title: '• Automation & AI Agents',
+    skills: [
+      'Make.com', 'n8n', 'Prompt Engineering',
+      'LLM Integration (OpenAI / Anthropic APIs)', 'API Webhooks', 'Workflow Automation'
+    ],
   },
   {
-    category: 'Libraries & Data',
-    skills: ['NumPy', 'Pandas', 'Matplotlib', 'Seaborn', 'PyMuPDF', 'python-docx'],
-  },
-  {
-    category: 'Databases',
-    skills: ['Firebase', 'MySQL', 'Supabase'],
-  },
-  {
-    category: 'Frontend',
-    skills: ['HTML5', 'CSS3', 'Bootstrap', 'Tailwind CSS', 'JavaScript', 'React', 'WordPress', 'Shopify'],
-  },
-  {
-    category: 'Tools & Testing',
-    skills: ['Git', 'GitHub', 'Postman', 'VS Code', 'PyCharm', 'Android Studio', 'pytest'],
+    title: '• Tools & Frontend',
+    skills: [
+      'Git', 'GitHub', 'Postman', 'VS Code', 'PyCharm',
+      'pytest', 'HTML5', 'CSS3', 'Bootstrap', 'Tailwind CSS'
+    ],
   },
 ];
 
 export default function Skills() {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 },
-  };
-
   return (
     <div className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         className="mb-16 text-center"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Technical Skills</h2>
-        <div className="w-16 h-[2px] bg-blue-400 mx-auto rounded-full"></div>
+        <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-3">Technical Skills</h2>
+        <div className="w-16 h-[3px] bg-blue-500 mx-auto rounded-full shadow-[0_0_12px_rgba(59,130,246,0.6)]"></div>
       </motion.div>
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
-      >
-        {skillsData.map((category, idx) => (
+      {/* Grid of Skill Categories */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {skillCategories.map((category, index) => (
           <motion.div
-            key={idx}
-            variants={item}
-            className="rounded-xl bg-white/[0.02] border border-white/[0.06] p-6 flex flex-col h-full hover:border-white/[0.1] transition-colors"
+            key={category.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: index * 0.08 }}
+            whileHover={{ y: -5, scale: 1.01 }}
+            className="glass-card glass-card-hover p-6 flex flex-col justify-between"
           >
-            <h3 className="text-base font-semibold text-white mb-5 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
-              {category.category}
-            </h3>
-            <div className="flex flex-wrap gap-2 mt-auto">
-              {category.skills.map((skill, sIdx) => (
-                <span
-                  key={sIdx}
-                  className="px-3 py-1 text-xs rounded-md bg-white/[0.03] border border-white/[0.06] text-gray-400 hover:text-white hover:border-blue-400/30 hover:bg-blue-400/[0.06] transition-all cursor-default"
-                >
-                  {skill}
-                </span>
-              ))}
+            <div>
+              <h3 className="text-base font-bold text-white mb-4 flex items-center gap-2">
+                {category.title}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="skill-pill text-xs text-gray-300 bg-white/[0.04] px-3 py-1.5 rounded-lg border border-white/[0.06] cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }
