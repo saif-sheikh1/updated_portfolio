@@ -70,6 +70,15 @@ const liveProjects: LiveProject[] = [
     description: 'Custom client-facing web application optimized for speed, responsive cross-device layout, and intuitive user navigation.',
     tech: ['HTML5', 'CSS3', 'JavaScript', 'Netlify', 'Animations'],
   },
+  {
+    id: 'live-6',
+    title: 'AI Resume Analyzer',
+    subtitle: 'Intelligent Resume Analysis & ATS Optimization',
+    url: 'https://ai-resume-analyzer-6xh1ollhv-muhammad-saifs-projects.vercel.app/',
+    category: 'Live Sites',
+    description: 'An AI-powered application that evaluates resumes against job descriptions to provide detailed ATS scoring, keyword extraction, and optimization suggestions.',
+    tech: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'OpenAI'],
+  },
 ];
 
 const remainingProjects: OtherProject[] = [
