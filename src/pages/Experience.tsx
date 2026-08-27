@@ -125,9 +125,9 @@ export default function Experience() {
                     {exp.duration}
                   </span>
                 </div>
-                
+
                 <p className="text-gray-300 text-sm">{exp.description}</p>
-                
+
                 <div className="space-y-2">
                   {exp.achievements.map((ach, i) => (
                     <div key={i} className="text-xs md:text-sm text-gray-400 flex items-start gap-2 leading-relaxed">

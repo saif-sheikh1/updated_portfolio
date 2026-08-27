@@ -1,155 +1,159 @@
+import { GraduationCap, Code2, Brain, Eye } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { MapPin, Globe, GraduationCap, Award, Building2, Users, Trophy, Briefcase } from 'lucide-react';
 
-const timelineEvents = [
-  {
-    category: 'EDUCATION',
-    icon: <GraduationCap size={16} className="text-blue-400" />,
-    title: 'BS Computer Science (BSCS)',
-    subtitle: 'The University of Faisalabad (2022 – 2026)',
-    description: 'CGPA: 3.22 / 4.00 — Specialization in Machine Learning & Data Science.',
-  },
-  {
-    category: 'STARTUP & INNOVATION',
-    icon: <Award size={16} className="text-yellow-400" />,
-    title: 'Top 4 Finalist — Pakistan Innovative 2026',
-    subtitle: '1,000+ competing projects (IEEE-backed, May 2026)',
-    description: 'Recognized nationwide for developing the Multi-Sensor Mental Health Detection System using multimodal CNN + LSTM deep learning models.',
-  },
-  {
-    category: 'INCUBATION',
-    icon: <Building2 size={16} className="text-cyan-400" />,
-    title: 'NIC Faisalabad Incubatee',
-    subtitle: 'National Incubation Center Faisalabad',
-    description: 'Active startup founder incubated at NIC Faisalabad, building AI-powered health-tech solutions.',
-  },
-  {
-    category: 'LEADERSHIP',
-    icon: <Users size={16} className="text-purple-400" />,
-    title: 'General Secretary — Entrepreneurship Society',
-    subtitle: 'The University of Faisalabad (Dec 2024 – Jun 2025)',
-    description: 'Led 8+ flagship events (TEDxTUF, SME Launchpad, Idea Competition) reaching hundreds of students across cross-functional executive teams.',
-  },
-  {
-    category: 'LEADERSHIP',
-    icon: <Trophy size={16} className="text-emerald-400" />,
-    title: 'Hult Prize On-Campus Runner-Up',
-    subtitle: 'The University of Faisalabad (Feb 2024)',
-    description: 'Led the runner-up social entrepreneurship startup team at the on-campus Hult Prize competition.',
-  },
-  {
-    category: 'INTERNSHIPS',
-    icon: <Briefcase size={16} className="text-blue-400" />,
-    title: '5+ Technical Internships',
-    subtitle: 'AI Automation · ML · Python · Web Development',
-    description: 'Gained hands-on production experience at Dot Tribe, Gamica Cloud, Compiling Logics, Career Institute, and DEN.',
-  },
+const INFO_CARDS = [
+  { icon: <GraduationCap size={18} />, label: 'BS Computer Science', sub: 'The University of Faisalabad' },
+  { icon: <Brain size={18} />, label: 'Machine Learning', sub: 'CNN · LSTM · Deep Learning' },
+  { icon: <Code2 size={18} />, label: 'Python Development', sub: 'FastAPI · ML Pipelines' },
+  { icon: <Eye size={18} />, label: 'Computer Vision', sub: 'OpenCV · YOLO · OCR' },
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { type: 'spring' as const, stiffness: 100, damping: 20 } }
+};
 
 export default function About() {
   return (
-    <div className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Title Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mb-16 text-center"
-      >
-        <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-3">About Me</h2>
-        <div className="w-16 h-[3px] bg-blue-500 mx-auto rounded-full shadow-[0_0_12px_rgba(59,130,246,0.6)]"></div>
-      </motion.div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        {/* Left Column: Biography & Details Card */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="lg:col-span-6 space-y-6"
+    <div id="about" style={{ padding: '100px 0' }}>
+      <div className="section-container">
+        {/* Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          style={{ marginBottom: '60px' }}
         >
-          <h3 className="text-2xl font-bold text-white">Professional Biography</h3>
-          <p className="text-gray-400 leading-relaxed text-sm md:text-base">
-            Machine Learning Engineer & Python Developer with <strong className="text-white">5+ internships</strong> building 
-            CNN/LSTM models and production Python backends — including a{' '}
-            <strong className="text-blue-400">Top 4 finish at Pakistan Innovative 2026</strong> among 1,000+ competing 
-            projects, currently incubated at <strong className="text-white">NIC Faisalabad</strong>.
-          </p>
-          <p className="text-gray-400 leading-relaxed text-sm md:text-base">
-            Built and deployed production-oriented CNN models achieving{' '}
-            <strong className="text-emerald-400">90%+ OCR accuracy</strong> and{' '}
-            <strong className="text-purple-400">~85% mental health classification accuracy</strong>, served via FastAPI REST 
-            endpoints with real-time monitoring dashboards. Seeking a Machine Learning Engineer or Python Developer role 
-            to build, train, and ship models and backend systems that reach real users and deliver measurable impact.
-          </p>
+          <div className="eyebrow">About Me</div>
+          <h2
+            style={{
+              fontFamily: 'Manrope, sans-serif',
+              fontWeight: 800,
+              fontSize: 'clamp(28px, 4vw, 44px)',
+              color: 'var(--text-primary)',
+              lineHeight: 1.15,
+              maxWidth: '600px',
+            }}
+          >
+            Turning Data Into{' '}
+            <span className="gradient-text-blue">Intelligent Solutions</span>
+          </h2>
+        </motion.div>
 
-          {/* Details & Focus Areas Glass Card */}
-          <div className="glass-card p-6 space-y-4">
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider text-blue-400 border-b border-white/[0.06] pb-3">
-              Personal Details & Focus Areas
-            </h4>
-            <div className="space-y-3 text-xs md:text-sm text-gray-300">
-              <div className="flex items-center gap-3">
-                <MapPin size={16} className="text-blue-400 shrink-0" />
-                <span><strong className="text-gray-400">Location:</strong> Faisalabad, Pakistan</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Globe size={16} className="text-cyan-400 shrink-0" />
-                <span><strong className="text-gray-400">Languages:</strong> English (Professional) | Urdu (Native)</span>
-              </div>
-              <div className="pt-2 border-t border-white/[0.06]">
-                <strong className="text-gray-400 block mb-1">Technical Focus Areas:</strong>
-                <div className="flex flex-wrap gap-1.5 mt-2">
-                  {[
-                    'Machine Learning',
-                    'Computer Vision',
-                    'OCR Pipelines',
-                    'FastAPI Backends',
-                    'AI Automation',
-                    'Chess & Rubik\'s Cube',
-                  ].map((item) => (
-                    <span key={item} className="px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/[0.06] text-xs text-gray-300">
-                      {item}
+        {/* Two-column layout */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '60px',
+            alignItems: 'start',
+          }}
+        >
+          {/* Left — Bio */}
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+              <motion.p variants={itemVariants} style={{ fontFamily: 'Manrope, sans-serif', fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.8 }}>
+                I'm <strong style={{ color: 'var(--text-primary)', fontWeight: 700 }}>Muhammad Saif</strong>, a Machine Learning Developer and Python Developer based in Faisalabad, Pakistan. With hands-on experience across 5+ technical internships, I specialize in building production-ready ML systems that solve real problems.
+              </motion.p>
+              <motion.p variants={itemVariants} style={{ fontFamily: 'Manrope, sans-serif', fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.8 }}>
+                My work spans Computer Vision pipelines achieving{' '}
+                <strong style={{ color: 'var(--text-primary)' }}>90%+ OCR accuracy</strong>,
+                multimodal deep learning systems for mental health detection with{' '}
+                <strong style={{ color: 'var(--text-primary)' }}>~85% classification accuracy</strong>,
+                and FastAPI backends serving real-time ML inference.
+              </motion.p>
+              <motion.p variants={itemVariants} style={{ fontFamily: 'Manrope, sans-serif', fontSize: '16px', color: 'var(--text-secondary)', lineHeight: 1.8 }}>
+                My mental health detection system placed{' '}
+                <strong style={{ color: 'var(--accent)' }}>Top 4 at Pakistan Innovative 2026</strong>{' '}
+                among 1,000+ competing projects and is now incubated at NIC Faisalabad. I focus on the gap between a model that works in a notebook and a system that runs reliably in production.
+              </motion.p>
+
+              {/* Location + email */}
+              <motion.div variants={itemVariants} style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '8px' }}>
+                {[
+                  { label: 'Location', value: 'Faisalabad, Pakistan' },
+                  { label: 'Email', value: 'sheikhoo1274@gmail.com' },
+                  { label: 'Status', value: 'Open to opportunities' },
+                ].map((item) => (
+                  <div key={item.label} style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                    <span style={{ fontFamily: 'Manrope, sans-serif', fontSize: '13px', color: 'var(--text-muted)', minWidth: '70px', fontWeight: 600 }}>
+                      {item.label}
                     </span>
-                  ))}
-                </div>
-              </div>
+                    <span style={{ fontFamily: 'Manrope, sans-serif', fontSize: '14px', color: 'var(--text-secondary)' }}>
+                      {item.value}
+                    </span>
+                  </div>
+                ))}
+              </motion.div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
 
-        {/* Right Column: Timeline Events */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="lg:col-span-6 relative pl-6 border-l border-white/10 space-y-6"
-        >
-          {timelineEvents.map((event, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
-              className="relative group"
-            >
-              {/* Timeline Indicator Dot */}
-              <div className="absolute -left-[31px] top-4 w-3.5 h-3.5 rounded-full bg-blue-500 border-2 border-[#06070a] shadow-[0_0_10px_rgba(59,130,246,0.8)] group-hover:scale-125 transition-transform" />
-
-              {/* Event Card */}
-              <div className="glass-card glass-card-hover p-5 space-y-2">
-                <div className="flex items-center gap-2 text-xs font-bold text-blue-400 uppercase tracking-wider">
-                  {event.icon}
-                  <span>{event.category}</span>
+          {/* Right — Info cards */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: "-100px" }}
+            style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}
+          >
+            {INFO_CARDS.map((card) => (
+              <motion.div
+                variants={itemVariants}
+                key={card.label}
+                style={{
+                  background: 'var(--surface)',
+                  border: '1px solid var(--border)',
+                  borderRadius: '14px',
+                  padding: '20px',
+                  transition: 'border-color 0.2s, transform 0.2s',
+                  cursor: 'default',
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.borderColor = 'var(--border-2)';
+                  el.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.borderColor = 'var(--border)';
+                  el.style.transform = 'translateY(0)';
+                }}
+              >
+                <div
+                  style={{
+                    width: 36, height: 36, borderRadius: '10px',
+                    background: 'var(--accent-dim)',
+                    border: '1px solid rgba(59,130,246,0.2)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: 'var(--accent)', marginBottom: '12px',
+                  }}
+                >
+                  {card.icon}
                 </div>
-                <h4 className="text-base md:text-lg font-bold text-white">{event.title}</h4>
-                <h5 className="text-xs text-gray-400 font-medium">{event.subtitle}</h5>
-                <p className="text-xs md:text-sm text-gray-400 leading-relaxed pt-1">{event.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+                <div style={{ fontFamily: 'Manrope, sans-serif', fontSize: '13px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '4px' }}>
+                  {card.label}
+                </div>
+                <div style={{ fontFamily: 'Manrope, sans-serif', fontSize: '12px', color: 'var(--text-muted)', lineHeight: 1.5 }}>
+                  {card.sub}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </div>
   );

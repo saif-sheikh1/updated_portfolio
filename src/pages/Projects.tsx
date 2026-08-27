@@ -54,6 +54,15 @@ const liveProjects: LiveProject[] = [
   },
   {
     id: 'live-4',
+    title: 'AURUM — Luxury Fine Dining & Restaurant Platform',
+    subtitle: 'Michelin-Starred Culinary & Reservation Platform',
+    url: 'https://resturant-website-one-pearl.vercel.app/',
+    category: 'Live Sites',
+    description: 'Luxury fine dining restaurant web application featuring interactive tasting menu showcases, 3D interactive hero canvas, table reservation system, gift card purchasing, and animated gallery.',
+    tech: ['HTML5', 'CSS3', 'JavaScript', 'Canvas', 'Vercel'],
+  },
+  {
+    id: 'live-5',
     title: 'Radiant Otter — Deployed Web Application',
     subtitle: 'Interactive Deployed Web Application',
     url: 'https://radiant-otter-12abd9.netlify.app',
@@ -62,7 +71,7 @@ const liveProjects: LiveProject[] = [
     tech: ['HTML5', 'CSS3', 'JavaScript', 'Netlify'],
   },
   {
-    id: 'live-5',
+    id: 'live-6',
     title: 'Teal Rugelach — Deployed Web Showcase',
     subtitle: 'Custom Client Web Application',
     url: 'https://teal-rugelach-85ed5a.netlify.app',
@@ -71,7 +80,7 @@ const liveProjects: LiveProject[] = [
     tech: ['HTML5', 'CSS3', 'JavaScript', 'Netlify', 'Animations'],
   },
   {
-    id: 'live-6',
+    id: 'live-7',
     title: 'AI Resume Analyzer',
     subtitle: 'Intelligent Resume Analysis & ATS Optimization',
     url: 'https://ai-resume-analyzer-6xh1ollhv-muhammad-saifs-projects.vercel.app/',
@@ -184,11 +193,10 @@ export default function Projects() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setFilter(cat)}
-              className={`px-4 py-2 rounded-xl text-xs md:text-sm font-medium transition-all ${
-                filter === cat
-                  ? 'bg-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.45)] font-semibold'
-                  : 'bg-white/[0.04] border border-white/[0.06] text-gray-400 hover:text-white hover:border-white/[0.15]'
-              }`}
+              className={`px-4 py-2 rounded-xl text-xs md:text-sm font-medium transition-all ${filter === cat
+                ? 'bg-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.45)] font-semibold'
+                : 'bg-white/[0.04] border border-white/[0.06] text-gray-400 hover:text-white hover:border-white/[0.15]'
+                }`}
             >
               {cat}
             </motion.button>

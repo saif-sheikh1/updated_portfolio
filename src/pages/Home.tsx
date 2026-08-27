@@ -47,7 +47,7 @@ export default function Home() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Left Column: Hero Text */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -84,12 +84,12 @@ export default function Home() {
             {/* Summary Paragraph */}
             <p className="text-sm md:text-base text-gray-400 leading-relaxed max-w-2xl">
               Machine Learning Engineer & Python Developer with{' '}
-              <strong className="text-white font-semibold hover:text-blue-300 transition-colors">5+ internships</strong> building CNN/LSTM models and 
+              <strong className="text-white font-semibold hover:text-blue-300 transition-colors">5+ internships</strong> building CNN/LSTM models and
               production Python backends — including a{' '}
-              <strong className="text-blue-400 font-semibold hover:text-blue-300 transition-colors">Top 4 finish at Pakistan Innovative 2026</strong> currently 
-              incubated at <strong className="text-white font-semibold hover:text-blue-300 transition-colors">NIC Faisalabad</strong>. Built production-oriented 
+              <strong className="text-blue-400 font-semibold hover:text-blue-300 transition-colors">Top 4 finish at Pakistan Innovative 2026</strong> currently
+              incubated at <strong className="text-white font-semibold hover:text-blue-300 transition-colors">NIC Faisalabad</strong>. Built production-oriented
               models achieving <strong className="text-emerald-400 font-semibold hover:text-emerald-300 transition-colors">90%+ OCR accuracy</strong> and{' '}
-              <strong className="text-purple-400 font-semibold hover:text-purple-300 transition-colors">~85% mental health classification accuracy</strong>, served via 
+              <strong className="text-purple-400 font-semibold hover:text-purple-300 transition-colors">~85% mental health classification accuracy</strong>, served via
               FastAPI REST endpoints with real-time monitoring dashboards.
             </p>
 

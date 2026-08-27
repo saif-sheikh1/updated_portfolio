@@ -12,7 +12,7 @@ export default function Footer() {
       <div className="bg-[#050608] pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-14">
-            
+
             {/* Brand Column */}
             <div className="lg:col-span-1">
               <Link to="/" className="group flex items-center mb-5 w-fit">
@@ -21,7 +21,7 @@ export default function Footer() {
                 <span className="text-xl font-extrabold text-cyan-400">.</span>
               </Link>
               <p className="text-gray-400 text-xs md:text-sm leading-relaxed max-w-xs">
-                AI & Machine Learning Engineer with 5+ internships, building production-ready ML systems 
+                AI & Machine Learning Engineer with 5+ internships, building production-ready ML systems
                 and automated workflows that deliver measurable business impact.
               </p>
             </div>

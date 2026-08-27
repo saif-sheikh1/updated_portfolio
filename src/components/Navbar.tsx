@@ -35,11 +35,10 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[#06070a]/90 backdrop-blur-xl py-3 border-b border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.8)]'
-          : 'bg-transparent py-5'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+        ? 'bg-[#06070a]/90 backdrop-blur-xl py-3 border-b border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.8)]'
+        : 'bg-transparent py-5'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         {/* Brand Logo */}
@@ -57,11 +56,10 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`relative px-3.5 py-1.5 text-xs font-semibold tracking-wide transition-colors ${
-                  isActive
-                    ? 'text-white'
-                    : 'text-gray-400 hover:text-white'
-                }`}
+                className={`relative px-3.5 py-1.5 text-xs font-semibold tracking-wide transition-colors ${isActive
+                  ? 'text-white'
+                  : 'text-gray-400 hover:text-white'
+                  }`}
               >
                 {link.name}
                 {isActive && (
@@ -105,11 +103,10 @@ export default function Navbar() {
                   <Link
                     key={link.name}
                     to={link.path}
-                    className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                      isActive
-                        ? 'text-white bg-blue-600/20 border border-blue-500/30'
-                        : 'text-gray-300 hover:text-white hover:bg-white/[0.04]'
-                    }`}
+                    className={`px-4 py-2.5 rounded-xl text-sm font-semibold transition-all ${isActive
+                      ? 'text-white bg-blue-600/20 border border-blue-500/30'
+                      : 'text-gray-300 hover:text-white hover:bg-white/[0.04]'
+                      }`}
                   >
                     {link.name}
                   </Link>

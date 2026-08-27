@@ -141,11 +141,11 @@ export default function Contact() {
           <div>
             <h3 className="text-2xl font-bold text-white mb-3">Let's Talk</h3>
             <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-              Whether you have a project proposal, need help building AI/ML solutions or automations, 
+              Whether you have a project proposal, need help building AI/ML solutions or automations,
               or just want to connect — I'd love to hear from you!
             </p>
           </div>
-          
+
           <div className="space-y-4">
             {/* Email */}
             <motion.a
@@ -161,7 +161,7 @@ export default function Contact() {
                 <p className="text-gray-200 text-sm font-medium group-hover:text-blue-300 transition-colors">sheikhoo1274@gmail.com</p>
               </div>
             </motion.a>
-            
+
             {/* Phone */}
             <motion.button
               whileHover={{ x: 4 }}
@@ -180,7 +180,7 @@ export default function Contact() {
               </div>
               <MessageCircle size={18} className="text-gray-500 group-hover:text-emerald-400 transition-colors" />
             </motion.button>
-            
+
             {/* Location */}
             <div className="flex items-center gap-4 p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.04]">
               <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">

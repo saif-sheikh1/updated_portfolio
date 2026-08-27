@@ -62,13 +62,13 @@ export default function Certifications() {
               <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-5 shadow-[0_0_10px_rgba(59,130,246,0.15)]">
                 <Award size={20} />
               </div>
-              
+
               <h3 className="text-base font-bold text-white mb-1.5 leading-snug">{cert.title}</h3>
               <p className="text-blue-400 text-sm font-semibold mb-1">{cert.issuer}</p>
               <p className="text-gray-400 text-xs mb-3">{cert.date}</p>
               <p className="text-gray-300 text-xs md:text-sm mb-5 leading-relaxed">{cert.detail}</p>
             </div>
-            
+
             <div className="pt-4 border-t border-white/[0.06]">
               <a
                 href="./certificate.pdf"

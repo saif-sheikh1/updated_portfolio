@@ -10,12 +10,12 @@
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
   }
-  
+
   html {
     scroll-behavior: smooth;
     background-color: #06070a;
   }
-  
+
   body {
     background-color: #06070a;
     color: #94a3b8;
@@ -23,7 +23,7 @@
     overflow-x: hidden;
     position: relative;
   }
-  
+
   ::selection {
     background: rgba(59, 130, 246, 0.35);
     color: #ffffff;
@@ -62,12 +62,10 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(
-      60deg,
-      transparent 30%,
-      rgba(255, 255, 255, 0.25) 50%,
-      transparent 70%
-    );
+    background: linear-gradient(60deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.25) 50%,
+        transparent 70%);
     transform: rotate(30deg) translateX(-100%);
     transition: transform 0.8s ease;
   }
@@ -96,6 +94,7 @@
     0% {
       box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
     }
+
     100% {
       box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
     }
@@ -126,13 +125,16 @@
 ::-webkit-scrollbar {
   width: 7px;
 }
+
 ::-webkit-scrollbar-track {
   background: #06070a;
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.12);
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(59, 130, 246, 0.5);
 }
