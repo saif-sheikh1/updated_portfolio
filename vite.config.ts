@@ -7,4 +7,8 @@ export default defineConfig({
   // GitHub Pages base path
   // Using './' so that relative paths work in all deployments
   base: './',
+  server: {
+    // Honor an externally-assigned port (e.g. preview tooling) if provided.
+    port: process.env.PORT ? Number(process.env.PORT) : 5173,
+  },
 })

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, MapPin, Phone, Mail, Download, ArrowUpRight, X, MessageCircle } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import SectionHeader from '../components/SectionHeader';
 
 const PHONE_NUMBER = '+923064851090';
 const PHONE_DISPLAY = '+92 306 4851090';
@@ -37,13 +38,13 @@ function PhoneModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
                 <h3 className="text-lg font-bold text-white">Contact via</h3>
                 <button
                   onClick={onClose}
-                  className="w-8 h-8 rounded-lg bg-white/[0.04] flex items-center justify-center text-gray-400 hover:text-white hover:bg-white/[0.08] transition-all"
+                  className="w-8 h-8 rounded-lg bg-white/[0.04] flex items-center justify-center text-inkmute hover:text-white hover:bg-white/[0.08] transition-all"
                 >
                   <X size={16} />
                 </button>
               </div>
 
-              <p className="text-gray-400 text-xs md:text-sm mb-6">
+              <p className="text-inkdim text-xs md:text-sm mb-6">
                 How would you like to reach me at <span className="text-white font-semibold">{PHONE_DISPLAY}</span>?
               </p>
 
@@ -54,14 +55,14 @@ function PhoneModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
                   whileTap={{ scale: 0.98 }}
                   href={`tel:${PHONE_NUMBER}`}
                   onClick={onClose}
-                  className="flex items-center gap-4 px-4 py-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-blue-400/40 hover:bg-blue-500/10 transition-all group"
+                  className="flex items-center gap-4 px-4 py-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-accent/40 hover:bg-accent/10 transition-all group"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:bg-blue-500/20 transition-colors">
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent group-hover:bg-accent/20 transition-colors">
                     <Phone size={20} />
                   </div>
                   <div>
                     <p className="text-white font-semibold text-sm">Phone Call</p>
-                    <p className="text-gray-400 text-xs">Open your phone dialer</p>
+                    <p className="text-inkmute text-xs">Open your phone dialer</p>
                   </div>
                 </motion.a>
 
@@ -79,7 +80,7 @@ function PhoneModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
                   </div>
                   <div>
                     <p className="text-white font-semibold text-sm">WhatsApp</p>
-                    <p className="text-gray-400 text-xs">Chat on WhatsApp</p>
+                    <p className="text-inkmute text-xs">Chat on WhatsApp</p>
                   </div>
                 </motion.a>
               </div>
@@ -120,15 +121,7 @@ export default function Contact() {
       <PhoneModal isOpen={phoneModalOpen} onClose={() => setPhoneModalOpen(false)} />
 
       {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mb-16 text-center"
-      >
-        <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-3">Get In Touch</h2>
-        <div className="w-16 h-[3px] bg-blue-500 mx-auto rounded-full shadow-[0_0_12px_rgba(59,130,246,0.6)]"></div>
-      </motion.div>
+      <SectionHeader eyebrow="Contact" title="Get In Touch" />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
         {/* Left Column: Info */}
@@ -139,8 +132,8 @@ export default function Contact() {
           className="space-y-8"
         >
           <div>
-            <h3 className="text-2xl font-bold text-white mb-3">Let's Talk</h3>
-            <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+            <h3 className="font-display text-2xl font-bold text-white mb-3">Let's Talk</h3>
+            <p className="text-inkdim text-sm md:text-base leading-relaxed">
               Whether you have a project proposal, need help building AI/ML solutions or automations,
               or just want to connect — I'd love to hear from you!
             </p>
@@ -151,14 +144,14 @@ export default function Contact() {
             <motion.a
               whileHover={{ x: 4 }}
               href="mailto:sheikhoo1274@gmail.com"
-              className="flex items-center gap-4 group p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:border-blue-500/30 hover:bg-white/[0.04] transition-all"
+              className="flex items-center gap-4 group p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-accent/30 hover:bg-white/[0.04] transition-all"
             >
-              <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+              <div className="w-10 h-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
                 <Mail size={18} />
               </div>
               <div>
-                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider">Email</h4>
-                <p className="text-gray-200 text-sm font-medium group-hover:text-blue-300 transition-colors">sheikhoo1274@gmail.com</p>
+                <h4 className="font-mono-ui text-[11px] font-medium text-inkmute uppercase tracking-widest">Email</h4>
+                <p className="text-ink text-sm font-medium group-hover:text-accent transition-colors">sheikhoo1274@gmail.com</p>
               </div>
             </motion.a>
 
@@ -166,29 +159,29 @@ export default function Contact() {
             <motion.button
               whileHover={{ x: 4 }}
               onClick={() => setPhoneModalOpen(true)}
-              className="flex items-center gap-4 group w-full text-left p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.04] hover:border-blue-500/30 hover:bg-white/[0.04] transition-all"
+              className="flex items-center gap-4 group w-full text-left p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-accent/30 hover:bg-white/[0.04] transition-all"
             >
-              <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+              <div className="w-10 h-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent group-hover:scale-110 transition-transform">
                 <Phone size={18} />
               </div>
               <div className="flex-1">
-                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider">Phone / WhatsApp</h4>
-                <p className="text-gray-200 text-sm font-medium group-hover:text-blue-300 transition-colors flex items-center gap-2">
+                <h4 className="font-mono-ui text-[11px] font-medium text-inkmute uppercase tracking-widest">Phone / WhatsApp</h4>
+                <p className="text-ink text-sm font-medium group-hover:text-accent transition-colors flex items-center gap-2">
                   {PHONE_DISPLAY}
-                  <span className="text-[10px] text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded-full border border-blue-500/20">tap to choose</span>
+                  <span className="font-mono-ui text-[10px] text-accent bg-accent/10 px-2 py-0.5 rounded-full border border-accent/20">tap to choose</span>
                 </p>
               </div>
-              <MessageCircle size={18} className="text-gray-500 group-hover:text-emerald-400 transition-colors" />
+              <MessageCircle size={18} className="text-inkmute group-hover:text-emerald-400 transition-colors" />
             </motion.button>
 
             {/* Location */}
-            <div className="flex items-center gap-4 p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.04]">
-              <div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+            <div className="flex items-center gap-4 p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06]">
+              <div className="w-10 h-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center text-accent">
                 <MapPin size={18} />
               </div>
               <div>
-                <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider">Location</h4>
-                <p className="text-gray-200 text-sm font-medium">Faisalabad, Pakistan</p>
+                <h4 className="font-mono-ui text-[11px] font-medium text-inkmute uppercase tracking-widest">Location</h4>
+                <p className="text-ink text-sm font-medium">Faisalabad, Pakistan</p>
               </div>
             </div>
           </div>
@@ -201,7 +194,7 @@ export default function Contact() {
               href="https://github.com/Saif-Sheikh1"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 text-xs font-semibold text-gray-300 hover:text-white px-4 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] hover:border-blue-500/40 transition-all"
+              className="flex items-center gap-2 text-xs font-semibold text-inkdim hover:text-white px-4 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] hover:border-accent/40 transition-all"
             >
               <FaGithub size={15} /> GitHub <ArrowUpRight size={12} />
             </motion.a>
@@ -211,7 +204,7 @@ export default function Contact() {
               href="https://linkedin.com/in/muhammad-saif-8a59662a4"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 text-xs font-semibold text-gray-300 hover:text-white px-4 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] hover:border-blue-500/40 transition-all"
+              className="flex items-center gap-2 text-xs font-semibold text-inkdim hover:text-white px-4 py-2.5 rounded-xl bg-white/[0.04] border border-white/[0.08] hover:border-accent/40 transition-all"
             >
               <FaLinkedin size={15} /> LinkedIn <ArrowUpRight size={12} />
             </motion.a>
@@ -221,7 +214,7 @@ export default function Contact() {
               href="./resume.pdf"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 text-xs font-semibold text-blue-400 hover:text-blue-300 px-4 py-2.5 rounded-xl bg-blue-500/10 border border-blue-500/20 hover:border-blue-500/40 transition-all"
+              className="flex items-center gap-2 text-xs font-semibold text-accent hover:text-white px-4 py-2.5 rounded-xl bg-accent/10 border border-accent/20 hover:border-accent/40 transition-all"
             >
               <Download size={15} /> Resume <ArrowUpRight size={12} />
             </motion.a>
@@ -237,7 +230,7 @@ export default function Contact() {
         >
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label htmlFor="name" className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Name</label>
+              <label htmlFor="name" className="block font-mono-ui text-[11px] font-medium text-inkmute uppercase tracking-widest mb-2">Name</label>
               <input
                 type="text"
                 id="name"
@@ -245,13 +238,13 @@ export default function Contact() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full bg-[#06070a] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500/60 focus:ring-1 focus:ring-blue-500/60 transition-all placeholder:text-gray-600"
+                className="w-full bg-[#070b14] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accent/60 focus:ring-1 focus:ring-accent/60 transition-all placeholder:text-inkmute"
                 placeholder="Your Name"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Email</label>
+              <label htmlFor="email" className="block font-mono-ui text-[11px] font-medium text-inkmute uppercase tracking-widest mb-2">Email</label>
               <input
                 type="email"
                 id="email"
@@ -259,13 +252,13 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full bg-[#06070a] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500/60 focus:ring-1 focus:ring-blue-500/60 transition-all placeholder:text-gray-600"
+                className="w-full bg-[#070b14] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accent/60 focus:ring-1 focus:ring-accent/60 transition-all placeholder:text-inkmute"
                 placeholder="your.email@example.com"
               />
             </div>
 
             <div>
-              <label htmlFor="subject" className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Subject</label>
+              <label htmlFor="subject" className="block font-mono-ui text-[11px] font-medium text-inkmute uppercase tracking-widest mb-2">Subject</label>
               <input
                 type="text"
                 id="subject"
@@ -273,13 +266,13 @@ export default function Contact() {
                 value={formData.subject}
                 onChange={handleChange}
                 required
-                className="w-full bg-[#06070a] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500/60 focus:ring-1 focus:ring-blue-500/60 transition-all placeholder:text-gray-600"
+                className="w-full bg-[#070b14] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accent/60 focus:ring-1 focus:ring-accent/60 transition-all placeholder:text-inkmute"
                 placeholder="Project Inquiry / Job Opportunity"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Message</label>
+              <label htmlFor="message" className="block font-mono-ui text-[11px] font-medium text-inkmute uppercase tracking-widest mb-2">Message</label>
               <textarea
                 id="message"
                 name="message"
@@ -287,7 +280,7 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                className="w-full bg-[#06070a] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-blue-500/60 focus:ring-1 focus:ring-blue-500/60 transition-all placeholder:text-gray-600 resize-none"
+                className="w-full bg-[#070b14] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accent/60 focus:ring-1 focus:ring-accent/60 transition-all placeholder:text-inkmute resize-none"
                 placeholder="Tell me about your project or inquiry..."
               />
             </div>
@@ -297,7 +290,7 @@ export default function Contact() {
               whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={status === 'loading'}
-              className="btn-shimmer w-full py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] disabled:opacity-50"
+              className="btn-shimmer w-full py-3.5 rounded-xl bg-signal text-white font-semibold text-sm flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(56,189,248,0.4)] hover:shadow-[0_0_30px_rgba(56,189,248,0.6)] disabled:opacity-50"
             >
               {status === 'loading' ? (
                 <span>Sending Message...</span>

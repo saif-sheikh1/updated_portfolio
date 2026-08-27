@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Globe, Cpu, FileText, CheckCircle2 } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
+import SectionHeader from '../components/SectionHeader';
 
 interface LiveProject {
   id: string;
@@ -173,49 +174,48 @@ export default function Projects() {
   return (
     <div className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Title & Subtitle Header */}
+      <SectionHeader
+        eyebrow="Selected Work"
+        title="Featured Projects"
+        description="Explore deployed web applications, machine learning systems, and Python automation workflows."
+      />
+
+      {/* Filter Buttons */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="mb-12 text-center"
+        transition={{ duration: 0.4 }}
+        className="flex flex-wrap gap-2 mb-12 -mt-4"
       >
-        <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-3">Featured Projects</h2>
-        <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto">
-          Explore deployed web applications, machine learning systems, and Python automation workflows.
-        </p>
-        <div className="w-16 h-[3px] bg-blue-500 mx-auto rounded-full mt-4 shadow-[0_0_12px_rgba(59,130,246,0.6)]"></div>
-
-        {/* Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-2 mt-8">
-          {categories.map((cat) => (
-            <motion.button
-              key={cat}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => setFilter(cat)}
-              className={`px-4 py-2 rounded-xl text-xs md:text-sm font-medium transition-all ${filter === cat
-                ? 'bg-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.45)] font-semibold'
-                : 'bg-white/[0.04] border border-white/[0.06] text-gray-400 hover:text-white hover:border-white/[0.15]'
-                }`}
-            >
-              {cat}
-            </motion.button>
-          ))}
-        </div>
+        {categories.map((cat) => (
+          <motion.button
+            key={cat}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setFilter(cat)}
+            className={`px-4 py-2 rounded-full font-mono-ui text-[11px] md:text-xs tracking-wide transition-all ${filter === cat
+              ? 'bg-signal text-white shadow-[0_0_20px_rgba(56,189,248,0.4)] font-semibold'
+              : 'bg-white/[0.04] border border-white/[0.08] text-inkmute hover:text-white hover:border-white/[0.2]'
+              }`}
+          >
+            {cat}
+          </motion.button>
+        ))}
       </motion.div>
 
       {/* SECTION 1: LIVE DEPLOYED WEB APPLICATIONS & PLATFORMS */}
       {showLiveSection && (
         <div className="mb-20">
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.2)]">
+            <div className="w-9 h-9 rounded-xl bg-accent-3/10 border border-accent-3/25 flex items-center justify-center text-accent-3 shadow-[0_0_12px_rgba(45,212,191,0.2)]">
               <Globe size={18} />
             </div>
             <div>
-              <h3 className="text-xl md:text-2xl font-bold text-white">
+              <h3 className="font-display text-xl md:text-2xl font-bold text-white">
                 Live Deployed Web Applications & Platforms
               </h3>
-              <p className="text-xs md:text-sm text-gray-400">
+              <p className="text-xs md:text-sm text-inkmute">
                 Production web applications active and hosted live
               </p>
             </div>
@@ -234,16 +234,16 @@ export default function Projects() {
               >
                 <div>
                   <div className="flex justify-between items-start mb-3 gap-2">
-                    <h4 className="text-lg font-bold text-white leading-snug group-hover:text-blue-300 transition-colors">
+                    <h4 className="text-lg font-bold text-white leading-snug">
                       {project.title}
                     </h4>
-                    <span className="flex items-center gap-1 text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20 shrink-0">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                    <span className="flex items-center gap-1 text-[10px] font-semibold text-accent-3 bg-accent-3/10 px-2.5 py-0.5 rounded-full border border-accent-3/25 shrink-0">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent-3 animate-ping" />
                       Live
                     </span>
                   </div>
 
-                  <p className="text-xs md:text-sm text-gray-400 mb-6 leading-relaxed">
+                  <p className="text-xs md:text-sm text-inkmute mb-6 leading-relaxed">
                     {project.description}
                   </p>
                 </div>
@@ -254,7 +254,7 @@ export default function Projects() {
                     {project.tech.map((t) => (
                       <span
                         key={t}
-                        className="skill-pill text-[11px] text-gray-400 bg-white/[0.04] px-2.5 py-1 rounded-md border border-white/[0.06]"
+                        className="skill-pill text-[11px] text-inkdim bg-white/[0.04] px-2.5 py-1 rounded-md border border-white/[0.06]"
                       >
                         {t}
                       </span>
@@ -268,7 +268,7 @@ export default function Projects() {
                     href={project.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="btn-shimmer w-full py-2.5 rounded-xl bg-emerald-950/50 hover:bg-emerald-900/80 border border-emerald-500/30 hover:border-emerald-500/60 text-emerald-400 hover:text-emerald-200 font-semibold text-xs flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(16,185,129,0.15)]"
+                    className="btn-shimmer w-full py-2.5 rounded-xl bg-accent-3/10 hover:bg-accent-3/20 border border-accent-3/30 hover:border-accent-3/60 text-accent-3 hover:text-white font-semibold text-xs flex items-center justify-center gap-2 transition-all"
                   >
                     <ExternalLink size={14} /> Visit Live Site
                   </motion.a>
@@ -283,14 +283,14 @@ export default function Projects() {
       {showOtherSection && (
         <div>
           <div className="flex items-center gap-3 mb-8">
-            <div className="w-9 h-9 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 shadow-[0_0_12px_rgba(59,130,246,0.2)]">
+            <div className="w-9 h-9 rounded-xl bg-accent/10 border border-accent/25 flex items-center justify-center text-accent shadow-[0_0_12px_rgba(56,189,248,0.2)]">
               <Cpu size={18} />
             </div>
             <div>
-              <h3 className="text-xl md:text-2xl font-bold text-white">
+              <h3 className="font-display text-xl md:text-2xl font-bold text-white">
                 Machine Learning, AI & Software Engineering Projects
               </h3>
-              <p className="text-xs md:text-sm text-gray-400">
+              <p className="text-xs md:text-sm text-inkmute">
                 Computer vision models, OCR pipelines, AI agents, and Python backends
               </p>
             </div>
@@ -315,17 +315,17 @@ export default function Projects() {
                       <h4 className="text-lg md:text-xl font-bold text-white leading-snug">{project.title}</h4>
                       <div className="flex items-center gap-2 shrink-0">
                         {project.highlight && (
-                          <span className="text-[10px] font-bold px-2.5 py-0.5 bg-yellow-500/10 border border-yellow-500/20 rounded-md text-yellow-400 flex items-center gap-1 shadow-[0_0_10px_rgba(234,179,8,0.15)]">
+                          <span className="text-[10px] font-bold px-2.5 py-0.5 bg-amber-400/10 border border-amber-400/25 rounded-md text-amber-300 flex items-center gap-1 shadow-[0_0_10px_rgba(251,191,36,0.15)]">
                             <CheckCircle2 size={11} /> {project.highlight}
                           </span>
                         )}
-                        <span className="text-[10px] font-semibold px-2 py-0.5 bg-blue-500/10 border border-blue-500/20 rounded text-blue-400">
+                        <span className="font-mono-ui text-[10px] font-semibold px-2 py-0.5 bg-accent/10 border border-accent/25 rounded text-accent">
                           {project.category}
                         </span>
                       </div>
                     </div>
 
-                    <p className="text-xs md:text-sm text-gray-400 mb-6 leading-relaxed">
+                    <p className="text-xs md:text-sm text-inkmute mb-6 leading-relaxed">
                       {project.description}
                     </p>
                   </div>
@@ -336,7 +336,7 @@ export default function Projects() {
                       {project.tech.map((t, i) => (
                         <span
                           key={i}
-                          className="skill-pill text-xs text-gray-400 bg-white/[0.03] px-2.5 py-1 rounded-md border border-white/[0.05]"
+                          className="skill-pill text-xs text-inkdim bg-white/[0.03] px-2.5 py-1 rounded-md border border-white/[0.05]"
                         >
                           {t}
                         </span>
@@ -352,7 +352,7 @@ export default function Projects() {
                             href={project.github}
                             target="_blank"
                             rel="noreferrer"
-                            className="flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors font-medium"
+                            className="flex items-center gap-1.5 text-xs text-inkmute hover:text-white transition-colors font-medium"
                           >
                             <FaGithub size={13} /> Code Repository
                           </motion.a>
@@ -361,7 +361,7 @@ export default function Projects() {
                           <motion.a
                             whileHover={{ scale: 1.05 }}
                             href={project.caseStudy}
-                            className="flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 transition-colors font-medium"
+                            className="flex items-center gap-1.5 text-xs text-accent hover:text-white transition-colors font-medium"
                           >
                             <FileText size={13} /> View Case Study
                           </motion.a>
