@@ -10,5 +10,8 @@ export default defineConfig({
   server: {
     // Honor an externally-assigned port (e.g. preview tooling) if provided.
     port: process.env.PORT ? Number(process.env.PORT) : 5173,
+    watch: {
+      ignored: ['**/*.pdf', '**/*.png', '**/*.jpg', '**/*.jpeg'],
+    },
   },
 })
